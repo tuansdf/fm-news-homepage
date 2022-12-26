@@ -32,7 +32,7 @@ export default function Page() {
           </div>
         </div>
 
-        <section className="mt-16 space-y-8 bg-slate-900 p-6 text-slate-50 xl:mt-0 xl:space-y-6">
+        <section className="mt-16 flex-col justify-center space-y-8 bg-slate-900 p-6 text-slate-50 xl:mt-0 xl:flex xl:space-y-6">
           <h2 className="text-4xl font-bold">New</h2>
 
           <div className="space-y-8">

@@ -2,6 +2,7 @@
 
 import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import iconClose from "/public/icon-menu-close.svg";
 import iconMenu from "/public/icon-menu.svg";
@@ -15,23 +16,35 @@ export default function Header() {
 
   return (
     <>
-      <nav className="mx-auto flex max-w-sm items-center justify-between p-8 xl:relative xl:max-w-screen-xl">
-        <Image src={logo} alt="" className="w-12" />
+      <nav className="mx-auto flex max-w-sm items-center justify-between py-8 xl:relative xl:max-w-screen-xl xl:px-8">
+        <Link href="#">
+          <Image src={logo} alt="" className="w-12 xl:w-16" />
+        </Link>
         <button onClick={openMenu} className="xl:hidden">
           <Image src={iconMenu} alt="" className="w-12" />
         </button>
         <div
           className={clsx(
-            { hidden: !menuOpen },
-            "absolute right-0 top-0 bottom-0 z-20 flex w-96 items-center bg-white p-8 text-start xl:relative xl:z-auto xl:block xl:w-auto xl:p-0"
+            { "-z-50 translate-x-full": !menuOpen, "translate-x-0": menuOpen },
+            "absolute right-0 top-0 bottom-0 z-20 flex w-96 items-center bg-off-white p-8 text-start transition-transform xl:relative xl:right-0 xl:z-auto xl:block xl:w-auto xl:translate-x-0 xl:p-0"
           )}
         >
-          <ul className="mb-60 flex flex-col gap-8 text-2xl xl:mb-0 xl:flex-row xl:items-center xl:gap-12 xl:text-base xl:text-gray-500">
-            <li>Home</li>
-            <li>New</li>
-            <li>Popular</li>
-            <li>Trending</li>
-            <li>Categories</li>
+          <ul className="mb-72 flex w-full flex-col gap-8 text-2xl xl:mb-0 xl:flex-row xl:items-center xl:gap-12 xl:text-base xl:text-dark-grayish-blue">
+            <li className="w-full cursor-pointer transition-colors duration-75 hover:text-soft-red">
+              Home
+            </li>
+            <li className="w-full cursor-pointer transition-colors duration-75 hover:text-soft-red">
+              New
+            </li>
+            <li className="w-full cursor-pointer transition-colors duration-75 hover:text-soft-red">
+              Popular
+            </li>
+            <li className="w-full cursor-pointer transition-colors duration-75 hover:text-soft-red">
+              Trending
+            </li>
+            <li className="w-full cursor-pointer transition-colors duration-75 hover:text-soft-red">
+              Categories
+            </li>
           </ul>
 
           <button
@@ -43,12 +56,13 @@ export default function Header() {
         </div>
       </nav>
 
-      {menuOpen ? (
-        <div
-          onClick={closeMenu}
-          className="absolute inset-0 z-10 bg-black/50 xl:hidden"
-        ></div>
-      ) : null}
+      <div
+        onClick={closeMenu}
+        className={clsx(
+          { "-z-50 bg-black/0": !menuOpen, "bg-black/50": menuOpen },
+          "absolute inset-0 transition-colors xl:hidden"
+        )}
+      ></div>
     </>
   );
 }

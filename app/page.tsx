@@ -15,25 +15,27 @@ export default function Page() {
       <div className="grid-cols-3 gap-8 xl:grid">
         <div className="col-span-2 space-y-6">
           <ImageSwitch mobileSrc={imgWeb3Mobile} desktopSrc={imgWeb3Desktop} />
-          <div className="grid-cols-2 space-y-6 xl:grid xl:space-y-0">
-            <h1 className="text-5xl font-bold xl:text-7xl">
-              The bright future of web 3.0?
+          <div className="gap-16 space-y-6 xl:grid xl:grid-cols-2 xl:space-y-0">
+            <h1 className="text-5xl font-bold text-very-dark-blue xl:text-6xl">
+              The Bright Future of Web 3.0?
             </h1>
             <div className="flex-col space-y-6 xl:flex">
-              <p className="flex-1 text-gray-500 xl:text-lg">
+              <p className="flex-1 text-dark-grayish-blue">
                 We dive into the next evolution of the web that claims to put
                 the power of the platforms back into the hands of the people.
                 But is it really fulfilling its promise?
               </p>
-              <button className="w-max bg-rose-400 py-4 px-8 font-medium uppercase tracking-widest text-white">
+              <button className="w-max bg-soft-red py-4 px-8 font-bold uppercase tracking-widest text-off-white transition-colors hover:bg-very-dark-blue xl:px-12">
                 Read more
               </button>
             </div>
           </div>
         </div>
 
-        <section className="mt-16 flex-col justify-center space-y-8 bg-slate-900 p-6 text-slate-50 xl:mt-0 xl:flex xl:space-y-6">
-          <h2 className="text-4xl font-bold">New</h2>
+        <section className="mt-16 flex-col justify-center bg-very-dark-blue p-6 text-off-white xl:mt-0 xl:flex">
+          <h2 className="mb-8 text-4xl font-bold text-soft-orange xl:mb-10 xl:text-5xl">
+            New
+          </h2>
 
           <div className="space-y-8">
             <NewArticalCard
@@ -54,7 +56,7 @@ export default function Page() {
         </section>
       </div>
 
-      <section className="mt-16 grid-cols-3 space-y-8 xl:grid xl:space-y-0">
+      <section className="mt-16 grid-cols-3 gap-8 space-y-8 xl:grid xl:space-y-0">
         <ArticalCard
           imgSrc={imgRetroPcs}
           index="01"
